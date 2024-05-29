@@ -1,0 +1,162 @@
+:root{
+    --font-size: 20px;
+    --title-color: #757575;
+    --special-color: #7843e6;
+    --hovered-color: #000000;
+    --text-color: hsl(var(--hue),var(--sat),46%);
+    --body-color: hsl(var(--hue),var(--sat),98%); 
+    --body-font: "Nunito", sans-serif;
+    --title-font: "Amaranth", sans-serif;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.nav-list{
+    display: flex;
+}
+
+.nav-link{
+    position: relative;
+    margin: 0 1.5em;
+}
+
+.nav-link::after{
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--special-color);
+    transform: scaleX(0);
+    transition: transform .25s ease-in;
+}
+.nav-link:hover::after{
+    transform: scaleX(1);
+}
+
+.a-link{
+    font-size: var(--font-size);
+    color: var(--title-color); 
+    text-decoration: none;
+    font-weight: 700;
+    font-family: var(--title-font);
+}
+.a-link:hover{
+    color: var(--hovered-color)
+}
+
+.introduction-container{
+    flex-wrap: wrap;
+}
+
+.icon-container{
+    display: block;
+}
+
+.main-links{
+    display: flex;
+    width: 30%;
+    height: 100px;
+}
+
+.left-icon{
+    display: flex;
+    flex-flow: column wrap;
+    width: 50px;
+    height: 50px;
+}
+
+.first-section{
+    margin-top: 130px;
+    height: calc(100vh - 130px);
+}
+
+.hero-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.main-picture{
+    aspect-ratio: 1;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.icons > *:not(:last-child){
+    padding-bottom: 30px;
+} 
+
+.introduction-container > *{
+    color: var(--text-color);
+    font-family: var(--title-font);
+    font-size: 30px;
+}
+
+.description{
+    color: var(--title-color);
+    font-size: 16px;
+    position: relative;
+}
+
+.description::before{
+    content: "\2014";
+    margin-right: 10px;
+    
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+}
+
+.about-section{
+    background-color: var(--title-color);
+    color: #FFF;
+    padding: 70px;
+    height: 100vh
+}
+
+.about-heading{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: var(--title-font);
+}
+
+.about-info{
+    padding-top: 60px;
+    width: 600px;
+    font-family: var(--body-font);
+}
+
+.about-info-sep{
+    display: flex;
+    justify-content: center;
+}
+
