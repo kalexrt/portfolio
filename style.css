@@ -7,12 +7,18 @@
     --body-color: hsl(var(--hue),var(--sat),98%); 
     --body-font: "Nunito", sans-serif;
     --title-font: "Amaranth", sans-serif;
+    --visible1: hidden;
+    --visible2: hidden;
+    --visible3: hidden;
+    --visible4: hidden;
 }
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
+
 
 ul {
     list-style: none;
@@ -81,12 +87,8 @@ ul {
     overflow: hidden;
     filter: grayscale(80%);
     scale: 0.9;
-}
-
-.left-icon.mail{
-    width: 60px;
-    aspect-ratio: 1;
-    overflow: visible;
+    object-fit: contain;
+    cursor: pointer;
 }
 
 .left-icon:hover{
@@ -178,6 +180,7 @@ img{
     padding-top: 60px;
     width: 600px;
     font-family: var(--body-font);
+    margin-left: 60px;
 }
 
 .about-info-sep{
@@ -185,3 +188,65 @@ img{
     justify-content: center;
 }
 
+.about-pic-container{
+    margin-right: 300px;
+}
+
+.face1,.face2,.face3,.face4{
+    aspect-ratio: 1;
+    height: 250px;
+    position: absolute;
+}
+.face1{
+    transform: rotate3d(0,1,0,0deg) translateZ(125px);
+    backface-visibility: var(--visible1);
+}
+.face2{
+    transform: rotate3d(0,1,0,90deg) translateZ(125px);
+    backface-visibility: var(--visible2);
+}
+.face3{
+    transform: rotate3d(0,1,0,180deg) translateZ(125px);
+    backface-visibility: var(--visible3);
+}
+.face4{
+    transform: rotate3d(0,1,0,-90deg) translateZ(125px);
+    backface-visibility: var(--visible4);
+}
+.rotator{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 18s linear infinite;
+    transform-origin: center;
+    perspective: 200000px;
+}
+
+@keyframes rotate{
+    0% {
+        transform: rotate3d(0,1,0,0deg);
+      }
+      25% {
+        transform: rotate3d(0,1,0,90deg);
+        --visible4:visible;
+        --visible2:hidden;
+        --visible3:hidden;
+        --visible1:hidden;
+      }
+      50% {
+        transform: rotate3d(0,1,0,180deg);
+        --visible3:visible;
+        --visible1:hidden;
+        --visible2:hidden;
+        --visible4:hidden;
+      }
+      75% {
+        transform: rotate3d(0,1,0,270deg);
+        --visible2:visible;
+        --visible1:hidden;
+        --visible3:hidden;
+        --visible4:hidden;
+      }
+      100% {
+        transform: rotate3d(0,1,0,360deg);
+      }
+}
